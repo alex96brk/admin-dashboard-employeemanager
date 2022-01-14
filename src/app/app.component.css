@@ -56,3 +56,23 @@
     margin-right: 20px;
     margin-left: 20px;
   }
+
+  .badge-success {
+    background-color: green;
+  }
+
+  .badge-info {
+    background-color: #fd7e14;
+  }
+
+  .badge-warning {
+    background-color: yellow;
+  }
+
+  .badge-danger {
+    background-color: red;
+  }
+
+  .badge-primary {
+    background-color: blue;
+  }
