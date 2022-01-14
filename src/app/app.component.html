@@ -80,9 +80,10 @@
 
    <div class="col-sm-6 col-md-6 col-lg-12" style="margin-top: 50px;">
     <h5 class="pull-left">HTTP Traces</h5>
-    <button type="button" class="btn btn-primary btn-sm pull-right" style="margin-bottom: 10px;">
+    <button (click)="exportTableToExcel()" type="button" class="btn btn-primary btn-sm pull-right" style="margin-bottom: 10px;">
       <i class="fa fa-external-link" aria-hidden="true"></i>
-      export to Excel</button>
+      export to Excel
+    </button>
     <table class="table table-hover text-center" id="httptrace-table">
       <thead>
         <tr>
@@ -95,7 +96,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let trace of traceList" style="cursor: pointer;">
+        <tr *ngFor="let trace of traceList | paginate:{id: 'trace-list', itemsPerPage: pageSize, currentPage: page, totalItems: traceList?.length} " style="cursor: pointer;">
           <td (click)="onSelectTrace(trace)">{{trace?.timestamp | date:"medium"}}</td>
           <td (click)="onSelectTrace(trace)">{{trace?.request.method}}</td>
           <td (click)="onSelectTrace(trace)">{{trace?.timeTaken}}</td>
@@ -113,7 +114,7 @@
         </tr>
       </tbody>
     </table>
-    <!--<pagination-controls class="text-center" id="trace-list" (pageChange)="page = $event" maxSize="10"directionLinks="true"></pagination-controls> -->
+    <pagination-controls class="text-center" id="trace-list" (pageChange)="page = $event" [maxSize]="10" [directionLinks]=true></pagination-controls>
  </div>
 </div>
 

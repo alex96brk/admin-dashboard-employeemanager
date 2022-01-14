@@ -10,6 +10,7 @@
     "strictNullChecks": false, //changed by user
     "noImplicitReturns": false, //changed by user
     "suppressImplicitAnyIndexErrors": true, //changed by user
+    "emitDecoratorMetadata": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noFallthroughCasesInSwitch": true,
