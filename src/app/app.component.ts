@@ -107,7 +107,9 @@ export class AppComponent implements OnInit {
   }
 
   private processTraces(traces: any): void {
-    this.traceList = traces;
+    this.traceList = traces.filter((trace: { request: { uri: string | string[]; }; }) => {
+      return !trace.request.uri.includes('actuator');
+    });
     this.traceList.forEach(trace => {
       switch (trace.response.status) {
         case 200:
